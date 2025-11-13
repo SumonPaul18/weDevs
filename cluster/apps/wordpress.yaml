@@ -26,11 +26,10 @@ spec:
       enabled: true
       hostname: app.local
       annotations:
- B       nginx.ingress.kubernetes.io/ssl-redirect: "false"
+        nginx.ingress.kubernetes.io/ssl-redirect: "false"
         nginx.ingress.kubernetes.io/configuration-snippet: |
           if ($status = 404) {
             return 302 https://www.google.com;
           }
     service:
       type: ClusterIP
-B
