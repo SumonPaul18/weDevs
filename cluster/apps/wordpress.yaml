@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: wordpress
-  namespace: apps
+B  namespace: apps
 spec:
   interval: 5m
   chart:
@@ -26,10 +26,11 @@ spec:
       enabled: true
       hostname: app.local
       annotations:
-        nginx.ingress.kubernetes.io/ssl-redirect: "false"
+ B       nginx.ingress.kubernetes.io/ssl-redirect: "false"
         nginx.ingress.kubernetes.io/configuration-snippet: |
           if ($status = 404) {
             return 302 https://www.google.com;
           }
     service:
       type: ClusterIP
+B
